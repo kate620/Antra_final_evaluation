@@ -1,6 +1,22 @@
 const input = document.querySelector(".search-header__input");
 const searchIcon = document.querySelector(".search-header__icon");
 const albumsContainer = document.querySelector(".albums-container");
+const header = document.querySelector(".search-header");
+
+// Sticky effect
+window.onscroll = function () {
+  scrollfunction();
+};
+const sticky = header.offsetTop;
+
+function scrollfunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
 // Get Album when click the button or press enter
 searchIcon.addEventListener("click", getAlbums);
 input.addEventListener("keypress", (e) => {
