@@ -1,0 +1,70 @@
+/* CSS resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 90%;
+  background-color: #333;
+  margin: 0 auto;
+  padding-top: 85px;
+}
+
+/* Search Button Style */
+
+button {
+  cursor: pointer;
+}
+
+.search-header__input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-header__input {
+  border-radius: 8px 0 0 8px;
+  border: 0;
+  outline: none;
+  height: 36px;
+  padding: 4px 16px;
+  background-color: white;
+}
+
+.search-header__icon {
+  border-radius: 0 8px 8px 0;
+  border: 0;
+  height: 36px;
+  padding: 4px 16px;
+  background-color: white;
+}
+
+/* AlbumBox and album Child style*/
+
+.albums-container {
+  display: flex;
+  justify-content: center;
+}
+
+.albums-container .albumContent {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  flex-wrap: wrap;
+}
+
+.albums-container .single-album {
+  margin: 1rem;
+  width: 200px;
+  height: auto;
+  color: #fff;
+}
+
+.albums-container img {
+  width: 200px;
+}
