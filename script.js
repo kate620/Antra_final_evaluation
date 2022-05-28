@@ -2,6 +2,12 @@ const input = document.querySelector(".search-header__input");
 const searchIcon = document.querySelector(".search-header__icon");
 const albumsContainer = document.querySelector(".albums-container");
 const header = document.querySelector(".search-header");
+const count = document.querySelector(".count");
+const searchResultsDisplay = document.querySelector(
+  ".search-header__results-display"
+);
+const countResult = document.querySelector(".result");
+const albumTitleWrapper = document.querySelector(".album-title-wrapper");
 
 // Sticky effect
 window.onscroll = function () {
@@ -18,9 +24,26 @@ function scrollfunction() {
 }
 
 // Get Album when click the button or press enter
-searchIcon.addEventListener("click", getAlbums);
+
+searchIcon.addEventListener("click", () => {
+  const name = document.querySelector(".search-header__input").value;
+  if (name === "") {
+    alert("Please type the artist name");
+  } else {
+    let albumContent = document.querySelector(".albumContent");
+    albumContent.innerHTML = `<div class="loader"></div>`;
+    setTimeout(() => {
+      getAlbums();
+    }, 2000);
+  }
+});
+
 input.addEventListener("keypress", (e) => {
+  const name = document.querySelector(".search-header__input").value;
   if (e.key === "Enter") {
+    if (name === "") {
+      alert("Please type the artist name");
+    }
     getAlbums();
   }
 });
@@ -42,6 +65,8 @@ function getAlbums(event) {
   )
     .then((response) => response.json())
     .then((data) => {
+      albumTitleWrapper.innerHTML = "";
+      countResult.innerHTML = `Result: ${data.results.length}`;
       data.results.forEach((album) => {
         let albumChildDiv = document.createElement("div");
 
