@@ -43,8 +43,13 @@ input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     if (name === "") {
       alert("Please type the artist name");
+    } else {
+      let albumContent = document.querySelector(".albumContent");
+      albumContent.innerHTML = `<div class="loader"></div>`;
+      setTimeout(() => {
+        getAlbums();
+      }, 2000);
     }
-    getAlbums();
   }
 });
 
